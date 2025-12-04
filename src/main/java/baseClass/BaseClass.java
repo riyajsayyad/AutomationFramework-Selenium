@@ -101,6 +101,7 @@ public class BaseClass {
 	@AfterMethod(alwaysRun = true)
 	public void tearDown() {
 		driver.close();
+		System.out.println("Successfully Close");
 	}
 
 }
