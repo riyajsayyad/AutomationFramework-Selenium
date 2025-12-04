@@ -1,0 +1,3 @@
+tests\StandAloneTest.class
+tests\SubmitOrderTest.class
+tests\ErrorValidationsTest.class
