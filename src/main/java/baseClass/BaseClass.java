@@ -39,9 +39,12 @@ public class BaseClass {
 
 		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream(
-				System.getProperty("user.dir") + "\\src\\main\\resources\\GlobalData.properties");
-		prop.load(fis);
+		
+		String projectPath = System.getProperty("user.dir");
+	    String filePath = projectPath + "/src/main/resources/GlobalData.properties";
+
+	    FileInputStream fis = new FileInputStream(filePath);
+	    prop.load(fis);
 		
 		
 		//So here we define the cmd browser if we pass otherwise it will take default which we proded in GlobalData.properties file
