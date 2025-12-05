@@ -101,6 +101,7 @@ public class BaseClass {
 	public void tearDown() {
 		driver.close();
 		System.out.println("Successfully Close");
+		System.out.println("And here we go...");
 	}
 
 }
