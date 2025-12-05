@@ -40,30 +40,26 @@ public class BaseClass {
 		
 		Properties prop = new Properties();
 		
-		String projectPath = System.getProperty("user.dir");
-	    String filePath = projectPath + "/src/main/resources/GlobalData.properties";
+		 try {
+		        prop.load(getClass().getClassLoader().getResourceAsStream("GlobalData.properties"));
+		    } catch (Exception e) {
+		        throw new RuntimeException("❌ ERROR: Unable to load GlobalData.properties", e);
+		    }
 
-	    FileInputStream fis = new FileInputStream(filePath);
-	    prop.load(fis);
-		
-		
-		//So here we define the cmd browser if we pass otherwise it will take default which we proded in GlobalData.properties file
-		String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : prop.getProperty("browser");
+		    String browserName = System.getProperty("browser") != null
+		            ? System.getProperty("browser")
+		            : prop.getProperty("browser");
 
-		if (browserName.equalsIgnoreCase("chrome")) {
+		    if (browserName.equalsIgnoreCase("chrome")) {
+		        driver = new ChromeDriver(options);
+		    } else if (browserName.equalsIgnoreCase("fireFox")) {
+		        driver = new FirefoxDriver();
+		    } else if (browserName.equalsIgnoreCase("safari")) {
+		        driver = new SafariDriver();
+		    } else if (browserName.equalsIgnoreCase("edge")) {
+		        driver = new EdgeDriver();
+		    }
 
-			driver = new ChromeDriver(options);
-
-		} else if (browserName.equalsIgnoreCase("fireFox")) {
-			driver = new FirefoxDriver();
-
-		} else if (browserName.equalsIgnoreCase("safari")) {
-			driver = new SafariDriver();
-
-		} else if (browserName.equalsIgnoreCase("edge")) {
-			driver = new EdgeDriver();
-
-		}
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		driver.manage().window().maximize();
