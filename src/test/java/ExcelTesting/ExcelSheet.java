@@ -24,6 +24,7 @@ public class ExcelSheet {
 		for(int i = 0; i < sheets; i++) {
 			if(wb.getSheetName(i).equalsIgnoreCase("testdata")) {
 				XSSFSheet sheet = wb.getSheetAt(i);
+				System.out.println("Added one line");
 			}
 		}
 		
