@@ -22,7 +22,7 @@ import pages.ProductCatelog;
 import pages.checkoutPage;
 
 public class SubmitOrderTest extends BaseClass{
-	String prodName = "ZARA COAT 3";
+	String prodName = "ZARA COAT 4";
 	
 	@Test(dataProvider = "getData", groups = "Purchase")
 	public void SubmitTest(HashMap<String, String> input) throws InterruptedException, IOException {
