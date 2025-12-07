@@ -49,7 +49,7 @@ public class SubmitOrderTest extends BaseClass{
 	//To verify that "ADIDAS ORIGINAL" are display or not
 //	@Test(dependsOnMethods = {"SubmitTest"})
 	public void OrderHistoryTest() {
-		ProductCatelog productCatelog = landingPage.loginApp("admin001@gmail.com", "@Admin03");
+		ProductCatelog productCatelog = landingPage.loginApp("admin001@gmail.com", "@Admin01");
 		OrderPage orderPage = productCatelog.goToOrderPage();
 		assertTrue(orderPage.VerifyProdDisplay(prodName));
 	}
